@@ -1193,10 +1193,71 @@ app.get('/api/stats', async (req, res) => {
 });
 
 
+// Endpoint de diagnóstico para verificar archivos en el servidor
+app.get('/api/health', (req, res) => {
+  const criticalFiles = [
+    'index.html',
+    'css/style.css',
+    'js/app.js',
+    'js/auth.js',
+    'js/asistencia.js',
+    'js/catalogo.js',
+    'img/hero_main.png',
+    'img/avatar_bruno.png',
+    'img/avatar_camila.png',
+    'img/avatar_lucas.png',
+    'schema.sql',
+    'crece_db.sql'
+  ];
+
+  const results = {};
+  for (const file of criticalFiles) {
+    const fullPath = path.join(__dirname, file);
+    results[file] = fs.existsSync(fullPath) ? '✅ EXISTS' : '❌ MISSING';
+  }
+
+  // Listar contenido raíz del directorio
+  let rootContents = [];
+  try {
+    rootContents = fs.readdirSync(__dirname);
+  } catch (e) {
+    rootContents = ['ERROR: ' + e.message];
+  }
+
+  res.json({
+    status: 'ok',
+    __dirname,
+    cwd: process.cwd(),
+    nodeVersion: process.version,
+    files: results,
+    rootDirectoryContents: rootContents
+  });
+});
+
 // Levantar el servidor
 app.listen(PORT, () => {
   console.log(`=======================================================`);
   console.log(`  SERVIDOR CORRIENDO EN EL PUERTO: http://localhost:${PORT}`);
+  console.log(`  __dirname: ${__dirname}`);
+  console.log(`  cwd: ${process.cwd()}`);
   console.log(`=======================================================`);
+
+  // Diagnóstico de arranque: verificar archivos críticos
+  const checkFiles = ['index.html', 'css/style.css', 'js/app.js', 'js/auth.js', 'js/catalogo.js', 'js/asistencia.js'];
+  console.log('[DIAG] Verificando archivos estáticos críticos:');
+  for (const f of checkFiles) {
+    const fullPath = path.join(__dirname, f);
+    const exists = fs.existsSync(fullPath);
+    console.log(`  ${exists ? '✅' : '❌'} ${f} -> ${fullPath}`);
+  }
+
+  // Listar contenido del directorio raíz
+  try {
+    const contents = fs.readdirSync(__dirname);
+    console.log('[DIAG] Contenido de __dirname:', contents.join(', '));
+  } catch (e) {
+    console.error('[DIAG] Error leyendo directorio:', e.message);
+  }
+
   initializeDatabase();
 });
