@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Simulador de Circuito Vial",
+    "author": "Equipo Alfa - 5° Grado",
+    "grade": "5°",
+    "description": "Un simulador interactivo de semáforos y cruces peatonales inteligentes desarrollado en Scratch para aprender sobre ordenamiento vial.",
+    "scratchUrl": "https://scratch.mit.edu/projects/1012345678/embed",
+    "thumbnail": "img/scratch_vial.png"
+  },
+  {
+    "id": 2,
+    "title": "Laberinto del Saber Informático",
+    "author": "Sofía Duarte y Lucas Ríos - 5° Grado",
+    "grade": "5°",
+    "description": "Un divertido juego de laberintos donde para avanzar debes responder preguntas de hardware, software y redes informáticas.",
+    "scratchUrl": "https://scratch.mit.edu/projects/1012345679/embed",
+    "thumbnail": "img/scratch_laberinto.png"
+  },
+  {
+    "id": 3,
+    "title": "Calculadora de Matrices Binarias",
+    "author": "Matías Gómez - 6° Grado",
+    "grade": "6°",
+    "description": "Herramienta que realiza sumas, restas y conversiones entre sistemas numéricos decimales, binarios y hexadecimales en tiempo real.",
+    "scratchUrl": "https://scratch.mit.edu/projects/1012345680/embed",
+    "thumbnail": "img/scratch_calculadora.png"
+  },
+  {
+    "id": 4,
+    "title": "Panel de Domótica Virtual",
+    "author": "Equipo IoT - 6° Grado",
+    "grade": "6°",
+    "description": "Simulador de una casa inteligente donde el usuario puede activar alarmas, luces, y sensores de temperatura desde una interfaz gráfica interactiva.",
+    "scratchUrl": "https://scratch.mit.edu/projects/1012345681/embed",
+    "thumbnail": "img/scratch_domotica.png"
+  }
+]

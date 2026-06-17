@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Introducción a Algoritmos y Pseudocódigo",
+    "grade": "5°",
+    "subject": "Programación",
+    "date": "2026-03-10",
+    "pdfUrl": "pdf/guion_introduccion_algoritmos.pdf",
+    "description": "Conceptos iniciales sobre la estructuración de la lógica. Instrucciones secuenciales y diagramas de flujo."
+  },
+  {
+    "id": 2,
+    "title": "Uso de Variables y Condicionales en Bloques",
+    "grade": "5°",
+    "subject": "Programación",
+    "date": "2026-04-14",
+    "pdfUrl": "pdf/guion_variables_condicionales.pdf",
+    "description": "Implementación de estructuras de decisión simple y repetitiva. Aplicado a la toma de decisiones en Scratch."
+  },
+  {
+    "id": 3,
+    "title": "Arquitectura y Conectividad LAN",
+    "grade": "6°",
+    "subject": "Redes de Computadoras",
+    "date": "2026-04-05",
+    "pdfUrl": "pdf/guion_redes_lan.pdf",
+    "description": "Componentes de una red local, tipos de cableado estructurado, normas T568A/B y direccionamiento IP estático."
+  },
+  {
+    "id": 4,
+    "title": "Programación y Sensores Arduino",
+    "grade": "6°",
+    "subject": "Robótica e IoT",
+    "date": "2026-05-12",
+    "pdfUrl": "pdf/guion_sensores_arduino.pdf",
+    "description": "Lectura de entradas analógicas y digitales utilizando sensores ultrasónicos, de luz (LDR) y de temperatura."
+  }
+]

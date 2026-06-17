@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Taller de Robótica Básica",
+    "description": "Estudiantes de 5° grado armando sus primeros prototipos con bloques sensores.",
+    "grade": "5°",
+    "date": "2026-05-10",
+    "src": "img/galeria_robotica_5.png"
+  },
+  {
+    "id": 2,
+    "title": "Prueba de Algoritmos en Scratch",
+    "description": "Clase práctica de lógica de programación en la sala de informática.",
+    "grade": "5°",
+    "date": "2026-05-18",
+    "src": "img/galeria_scratch_5.png"
+  },
+  {
+    "id": 3,
+    "title": "Armado de Servidores en Rack",
+    "description": "Estudiantes de 6° grado realizando el cableado estructurado del rack del laboratorio.",
+    "grade": "6°",
+    "date": "2026-04-22",
+    "src": "img/galeria_servidor_6.png"
+  },
+  {
+    "id": 4,
+    "title": "Prototipo de Domótica Integrado",
+    "description": "Presentación del sistema de luces automatizado controlado por Arduino.",
+    "grade": "6°",
+    "date": "2026-06-02",
+    "src": "img/galeria_domotica_6.png"
+  },
+  {
+    "id": 5,
+    "title": "Presentación de Software Educativo",
+    "description": "Estudiantes de 3° BTI compartiendo sus juegos interactivos con alumnos de primaria.",
+    "grade": "6°",
+    "date": "2026-06-10",
+    "src": "img/galeria_presentacion_bti.png"
+  },
+  {
+    "id": 6,
+    "title": "Clase Abierta de Ciberseguridad",
+    "description": "Charla y taller sobre navegación segura y prevención de phishing.",
+    "grade": "6°",
+    "date": "2026-06-12",
+    "src": "img/galeria_seguridad.png"
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "student": "Agustín Cabrera",
+    "grade": "5°",
+    "date": "2026-06-15",
+    "status": "Presente"
+  },
+  {
+    "id": 2,
+    "student": "Belén Martínez",
+    "grade": "5°",
+    "date": "2026-06-15",
+    "status": "Presente"
+  },
+  {
+    "id": 3,
+    "student": "Carlos Ferreira",
+    "grade": "5°",
+    "date": "2026-06-15",
+    "status": "Tarde"
+  },
+  {
+    "id": 4,
+    "student": "Daniela López",
+    "grade": "5°",
+    "date": "2026-06-15",
+    "status": "Ausente"
+  },
+  {
+    "id": 5,
+    "student": "Enzo Silva",
+    "grade": "6°",
+    "date": "2026-06-15",
+    "status": "Presente"
+  },
+  {
+    "id": 6,
+    "student": "Florencia Rodríguez",
+    "grade": "6°",
+    "date": "2026-06-15",
+    "status": "Presente"
+  },
+  {
+    "id": 7,
+    "student": "Gonzalo Pereira",
+    "grade": "6°",
+    "date": "2026-06-15",
+    "status": "Ausente"
+  },
+  {
+    "id": 8,
+    "student": "Agustín Cabrera",
+    "grade": "5°",
+    "date": "2026-06-16",
+    "status": "Presente"
+  },
+  {
+    "id": 9,
+    "student": "Belén Martínez",
+    "grade": "5°",
+    "date": "2026-06-16",
+    "status": "Ausente"
+  },
+  {
+    "id": 10,
+    "student": "Carlos Ferreira",
+    "grade": "5°",
+    "date": "2026-06-16",
+    "status": "Presente"
+  },
+  {
+    "id": 11,
+    "student": "Daniela López",
+    "grade": "5°",
+    "date": "2026-06-16",
+    "status": "Presente"
+  },
+  {
+    "id": 12,
+    "student": "Enzo Silva",
+    "grade": "6°",
+    "date": "2026-06-16",
+    "status": "Tarde"
+  },
+  {
+    "id": 13,
+    "student": "Florencia Rodríguez",
+    "grade": "6°",
+    "date": "2026-06-16",
+    "status": "Presente"
+  },
+  {
+    "id": 14,
+    "student": "Gonzalo Pereira",
+    "grade": "6°",
+    "date": "2026-06-16",
+    "status": "Presente"
+  }
+]
