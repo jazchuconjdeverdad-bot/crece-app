@@ -1194,7 +1194,7 @@ app.get('/api/stats', async (req, res) => {
 
 
 // Endpoint de diagnóstico para verificar archivos en el servidor
-app.get('/api/health', (req, res) => {
+app.get('/api/health', async (req, res) => {
   const criticalFiles = [
     'index.html',
     'css/style.css',
@@ -1224,11 +1224,44 @@ app.get('/api/health', (req, res) => {
     rootContents = ['ERROR: ' + e.message];
   }
 
+  // Verificar estado de la base de datos
+  let dbStatus = 'Not Initialized';
+  let dbError = null;
+  if (pool) {
+    try {
+      const [rows] = await pool.query('SELECT 1 + 1 AS result');
+      dbStatus = `Connected (Test Query Result: ${rows[0].result})`;
+    } catch (err) {
+      dbStatus = 'Connection Error';
+      dbError = err.message;
+    }
+  } else {
+    dbStatus = 'Pool is undefined';
+  }
+
+  // Obtener variables de entorno (ocultando información sensible)
+  const envVars = {
+    DATABASE_URL_length: process.env.DATABASE_URL ? process.env.DATABASE_URL.length : 0,
+    MYSQL_URL_length: process.env.MYSQL_URL ? process.env.MYSQL_URL.length : 0,
+    JAWSDB_URL_length: process.env.JAWSDB_URL ? process.env.JAWSDB_URL.length : 0,
+    CLEARDB_DATABASE_URL_length: process.env.CLEARDB_DATABASE_URL ? process.env.CLEARDB_DATABASE_URL.length : 0,
+    DB_HOST: process.env.DB_HOST || 'not set',
+    DB_PORT: process.env.DB_PORT || 'not set',
+    DB_USER: process.env.DB_USER || 'not set',
+    DB_NAME: process.env.DB_NAME || 'not set',
+    DB_PASSWORD_exists: !!process.env.DB_PASSWORD
+  };
+
   res.json({
     status: 'ok',
     __dirname,
     cwd: process.cwd(),
     nodeVersion: process.version,
+    database: {
+      status: dbStatus,
+      error: dbError
+    },
+    environmentVariables: envVars,
     files: results,
     rootDirectoryContents: rootContents
   });
