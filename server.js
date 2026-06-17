@@ -215,14 +215,44 @@ async function initializeDatabase() {
  */
 async function verifyAndSeedTables() {
   try {
-    // 1. Crear las tablas (CREATE TABLE IF NOT EXISTS — no destruye nada)
+    // Verificar si las tablas ya existen en el pool
+    let tablesExist = false;
+    try {
+      await pool.query('SELECT 1 FROM users LIMIT 1');
+      tablesExist = true;
+    } catch (e) {
+      try {
+        await pool.query('SELECT 1 FROM usuarios LIMIT 1');
+        tablesExist = true;
+      } catch (e2) {
+        tablesExist = false;
+      }
+    }
+
+    if (tablesExist) {
+      console.log('[DB-MySQL] Las tablas ya existen. Preservando datos existentes.');
+      return;
+    }
+
+    const dumpPath = path.join(__dirname, 'crece_db.sql');
     const schemaPath = path.join(__dirname, 'schema.sql');
+
+    if (fs.existsSync(dumpPath)) {
+      console.log('[DB-MySQL] Base de datos vacía detectada. Inicializando e importando "crece_db.sql"...');
+      const sql = fs.readFileSync(dumpPath, 'utf8');
+      await pool.query(sql);
+      console.log('[DB-MySQL] Base de datos restaurada correctamente desde crece_db.sql.');
+      return;
+    }
+
+    // Si no hay dump, usar schema.sql e insertar semillas por defecto
     if (fs.existsSync(schemaPath)) {
+      console.log('[DB-MySQL] Inicializando estructura básica con "schema.sql"...');
       const sql = fs.readFileSync(schemaPath, 'utf8');
       await pool.query(sql);
-      console.log('[DB-MySQL] Tablas verificadas/creadas con schema.sql.');
+      console.log('[DB-MySQL] Tablas creadas con schema.sql.');
     } else {
-      console.warn('[DB-MySQL] ADVERTENCIA: No se encontró schema.sql.');
+      console.warn('[DB-MySQL] ADVERTENCIA: No se encontró crece_db.sql ni schema.sql.');
       return;
     }
 
