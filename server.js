@@ -140,7 +140,7 @@ async function checkAdmin(req, res, next) {
  * Inicializa la base de datos de MySQL.
  */
 async function initializeDatabase() {
-  const dbUrl = process.env.DATABASE_URL || process.env.MYSQL_URL || process.env.JAWSDB_URL || process.env.CLEARDB_DATABASE_URL;
+  const dbUrl = process.env.DATABASE_URL || process.env.MYSQL_ADDON_URI || process.env.MYSQL_URL || process.env.JAWSDB_URL || process.env.CLEARDB_DATABASE_URL;
   const targetDbName = process.env.DB_NAME || 'crece_db';
 
   if (dbUrl) {
@@ -1242,6 +1242,7 @@ app.get('/api/health', async (req, res) => {
   // Obtener variables de entorno (ocultando información sensible)
   const envVars = {
     DATABASE_URL_length: process.env.DATABASE_URL ? process.env.DATABASE_URL.length : 0,
+    MYSQL_ADDON_URI_length: process.env.MYSQL_ADDON_URI ? process.env.MYSQL_ADDON_URI.length : 0,
     MYSQL_URL_length: process.env.MYSQL_URL ? process.env.MYSQL_URL.length : 0,
     JAWSDB_URL_length: process.env.JAWSDB_URL ? process.env.JAWSDB_URL.length : 0,
     CLEARDB_DATABASE_URL_length: process.env.CLEARDB_DATABASE_URL ? process.env.CLEARDB_DATABASE_URL.length : 0,
