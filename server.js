@@ -156,8 +156,10 @@ async function initializeDatabase() {
       await verifyAndSeedTables();
       return;
     } catch (uriError) {
-      console.error('[DB-MySQL] Error al intentar conectar con la URI de conexión:', uriError.message);
-      console.log('[DB-MySQL] Reintentando conexión con variables de entorno individuales...');
+      console.error('[DB-MySQL] Error crítico al conectar con la URI de conexión:', uriError.message);
+      // Mantener el pool de la URI externa para que los reintentos automáticos del pool funcionen
+      // y no sobrescribir con el pool local que fallará en producción.
+      return;
     }
   }
 
@@ -1233,7 +1235,7 @@ app.get('/api/health', async (req, res) => {
       dbStatus = `Connected (Test Query Result: ${rows[0].result})`;
     } catch (err) {
       dbStatus = 'Connection Error';
-      dbError = err.message;
+      dbError = err.message || err.code || String(err);
     }
   } else {
     dbStatus = 'Pool is undefined';
